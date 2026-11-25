@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "neo4j-cypher": {"command": "uvx", "args": ["mcp-neo4j-cypher"], "env": {"NEO4J_URI": "bolt://localhost:7687"}}
+  }
+}

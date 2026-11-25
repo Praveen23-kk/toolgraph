@@ -1,0 +1,29 @@
+{
+ "server": "postgres",
+ "transport": "stdio",
+ "command": "npx",
+ "args": [
+  "-y",
+  "@modelcontextprotocol/server-postgres",
+  "postgresql://localhost/mydb"
+ ],
+ "source": "hand-transcribed snapshot of the server's public tools/list (abbreviated); refresh with `toolgraph capture`",
+ "tools": [
+  {
+   "name": "query",
+   "description": "Run a read-only SQL query against the database. Returns rows",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "sql": {
+      "type": "string",
+      "description": "SQL query to run"
+     }
+    },
+    "required": [
+     "sql"
+    ]
+   }
+  }
+ ]
+}

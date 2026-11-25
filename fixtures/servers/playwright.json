@@ -1,0 +1,307 @@
+{
+ "server": "playwright",
+ "transport": "stdio",
+ "command": "npx",
+ "args": [
+  "-y",
+  "@playwright/mcp@latest"
+ ],
+ "source": "hand-transcribed snapshot of the server's public tools/list (abbreviated); refresh with `toolgraph capture`",
+ "tools": [
+  {
+   "name": "browser_navigate",
+   "description": "Navigate to a URL. Returns a page snapshot",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "URL to fetch"
+     }
+    },
+    "required": [
+     "url"
+    ]
+   }
+  },
+  {
+   "name": "browser_navigate_back",
+   "description": "Go back to the previous page",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  },
+  {
+   "name": "browser_snapshot",
+   "description": "Capture accessibility snapshot of the current page. Returns a page snapshot",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  },
+  {
+   "name": "browser_click",
+   "description": "Perform click on a web page",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "element": {
+      "type": "string",
+      "description": "element"
+     },
+     "ref": {
+      "type": "string",
+      "description": "ref"
+     },
+     "doubleClick": {
+      "type": "boolean",
+      "description": "doubleClick"
+     },
+     "button": {
+      "type": "string",
+      "description": "button"
+     }
+    },
+    "required": [
+     "element",
+     "ref"
+    ]
+   }
+  },
+  {
+   "name": "browser_type",
+   "description": "Type text into editable element",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "element": {
+      "type": "string",
+      "description": "element"
+     },
+     "ref": {
+      "type": "string",
+      "description": "ref"
+     },
+     "text": {
+      "type": "string",
+      "description": "Message text"
+     },
+     "submit": {
+      "type": "boolean",
+      "description": "submit"
+     }
+    },
+    "required": [
+     "element",
+     "ref",
+     "text"
+    ]
+   }
+  },
+  {
+   "name": "browser_hover",
+   "description": "Hover over element on page",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "element": {
+      "type": "string",
+      "description": "element"
+     },
+     "ref": {
+      "type": "string",
+      "description": "ref"
+     }
+    },
+    "required": [
+     "element",
+     "ref"
+    ]
+   }
+  },
+  {
+   "name": "browser_select_option",
+   "description": "Select an option in a dropdown",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "element": {
+      "type": "string",
+      "description": "element"
+     },
+     "ref": {
+      "type": "string",
+      "description": "ref"
+     },
+     "values": {
+      "type": "array",
+      "description": "values"
+     }
+    },
+    "required": [
+     "element",
+     "ref",
+     "values"
+    ]
+   }
+  },
+  {
+   "name": "browser_press_key",
+   "description": "Press a key on the keyboard",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "key": {
+      "type": "string",
+      "description": "key"
+     }
+    },
+    "required": [
+     "key"
+    ]
+   }
+  },
+  {
+   "name": "browser_take_screenshot",
+   "description": "Take a screenshot of the current page. Returns a screenshot image file",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "filename"
+     },
+     "fullPage": {
+      "type": "boolean",
+      "description": "fullPage"
+     },
+     "raw": {
+      "type": "boolean",
+      "description": "raw"
+     },
+     "element": {
+      "type": "string",
+      "description": "Human-readable element description"
+     },
+     "ref": {
+      "type": "string",
+      "description": "Exact target element reference from the page snapshot"
+     }
+    },
+    "required": []
+   }
+  },
+  {
+   "name": "browser_wait_for",
+   "description": "Wait for text to appear or disappear or a specified time to pass",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "time": {
+      "type": "number",
+      "description": "time"
+     },
+     "text": {
+      "type": "string",
+      "description": "Message text"
+     },
+     "textGone": {
+      "type": "boolean",
+      "description": "textGone"
+     }
+    },
+    "required": []
+   }
+  },
+  {
+   "name": "browser_console_messages",
+   "description": "Returns all console messages",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  },
+  {
+   "name": "browser_network_requests",
+   "description": "Returns all network requests since loading the page",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  },
+  {
+   "name": "browser_evaluate",
+   "description": "Evaluate JavaScript expression on page or element",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "function": {
+      "type": "string",
+      "description": "function"
+     },
+     "element": {
+      "type": "string",
+      "description": "element"
+     },
+     "ref": {
+      "type": "string",
+      "description": "ref"
+     }
+    },
+    "required": [
+     "function"
+    ]
+   }
+  },
+  {
+   "name": "browser_file_upload",
+   "description": "Upload one or multiple files",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "paths": {
+      "type": "array",
+      "description": "paths"
+     }
+    },
+    "required": [
+     "paths"
+    ]
+   }
+  },
+  {
+   "name": "browser_tabs",
+   "description": "List, create, close, or select a browser tab",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "action": {
+      "type": "string",
+      "description": "action"
+     },
+     "index": {
+      "type": "number",
+      "description": "index"
+     }
+    },
+    "required": [
+     "action"
+    ]
+   }
+  },
+  {
+   "name": "browser_close",
+   "description": "Close the page",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  }
+ ]
+}

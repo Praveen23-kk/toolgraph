@@ -1,0 +1,218 @@
+{
+ "server": "filesystem",
+ "transport": "stdio",
+ "command": "npx",
+ "args": [
+  "-y",
+  "@modelcontextprotocol/server-filesystem",
+  "."
+ ],
+ "source": "hand-transcribed snapshot of the server's public tools/list (abbreviated); refresh with `toolgraph capture`",
+ "tools": [
+  {
+   "name": "read_text_file",
+   "description": "Read the complete contents of a file from the file system as text",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string",
+      "description": "Path to the file or directory"
+     },
+     "head": {
+      "type": "string",
+      "description": "The name of the branch where your changes are implemented"
+     },
+     "tail": {
+      "type": "number",
+      "description": "tail"
+     }
+    },
+    "required": [
+     "path"
+    ]
+   }
+  },
+  {
+   "name": "read_multiple_files",
+   "description": "Read the contents of multiple files simultaneously",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "paths": {
+      "type": "array",
+      "description": "paths"
+     }
+    },
+    "required": [
+     "paths"
+    ]
+   }
+  },
+  {
+   "name": "write_file",
+   "description": "Create a new file or completely overwrite an existing file. Returns the file path",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string",
+      "description": "Path to the file or directory"
+     },
+     "content": {
+      "type": "string",
+      "description": "content"
+     }
+    },
+    "required": [
+     "path",
+     "content"
+    ]
+   }
+  },
+  {
+   "name": "edit_file",
+   "description": "Make line-based edits to a text file. Returns a git-style diff",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string",
+      "description": "Path to the file or directory"
+     },
+     "edits": {
+      "type": "array",
+      "description": "edits"
+     },
+     "dryRun": {
+      "type": "boolean",
+      "description": "dryRun"
+     }
+    },
+    "required": [
+     "path",
+     "edits"
+    ]
+   }
+  },
+  {
+   "name": "create_directory",
+   "description": "Create a new directory or ensure a directory exists. Returns the directory",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string",
+      "description": "Path to the file or directory"
+     }
+    },
+    "required": [
+     "path"
+    ]
+   }
+  },
+  {
+   "name": "list_directory",
+   "description": "Get a detailed listing of all files and directories in a specified path. Returns file paths",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string",
+      "description": "Path to the file or directory"
+     }
+    },
+    "required": [
+     "path"
+    ]
+   }
+  },
+  {
+   "name": "directory_tree",
+   "description": "Get a recursive tree view of files and directories as JSON. Returns file paths",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string",
+      "description": "Path to the file or directory"
+     }
+    },
+    "required": [
+     "path"
+    ]
+   }
+  },
+  {
+   "name": "move_file",
+   "description": "Move or rename files and directories. Returns the file path",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "source": {
+      "type": "string",
+      "description": "source"
+     },
+     "destination": {
+      "type": "string",
+      "description": "destination"
+     }
+    },
+    "required": [
+     "source",
+     "destination"
+    ]
+   }
+  },
+  {
+   "name": "search_files",
+   "description": "Recursively search for files and directories matching a pattern. Returns file paths",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string",
+      "description": "Path to the file or directory"
+     },
+     "pattern": {
+      "type": "string",
+      "description": "pattern"
+     },
+     "excludePatterns": {
+      "type": "array",
+      "description": "excludePatterns"
+     }
+    },
+    "required": [
+     "path",
+     "pattern"
+    ]
+   }
+  },
+  {
+   "name": "get_file_info",
+   "description": "Retrieve detailed metadata about a file or directory",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string",
+      "description": "Path to the file or directory"
+     }
+    },
+    "required": [
+     "path"
+    ]
+   }
+  },
+  {
+   "name": "list_allowed_directories",
+   "description": "Returns the list of directories that this server is allowed to access",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  }
+ ]
+}

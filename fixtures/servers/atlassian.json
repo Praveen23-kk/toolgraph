@@ -1,0 +1,227 @@
+{
+ "server": "atlassian",
+ "transport": "stdio",
+ "command": "npx",
+ "args": [
+  "-y",
+  "mcp-remote",
+  "https://mcp.atlassian.com/v1/sse"
+ ],
+ "source": "hand-transcribed snapshot of the server's public tools/list (abbreviated); refresh with `toolgraph capture`",
+ "tools": [
+  {
+   "name": "getJiraIssue",
+   "description": "Get the details of a Jira issue by issue key, including summary and description text",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cloudId": {
+      "type": "string",
+      "description": "Atlassian cloud id"
+     },
+     "issueIdOrKey": {
+      "type": "string",
+      "description": "Jira issue id or key, e.g. PROJ-123"
+     }
+    },
+    "required": [
+     "cloudId",
+     "issueIdOrKey"
+    ]
+   }
+  },
+  {
+   "name": "searchJiraIssuesUsingJql",
+   "description": "Search Jira issues using JQL. Returns Jira issues",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cloudId": {
+      "type": "string",
+      "description": "Atlassian cloud id"
+     },
+     "jql": {
+      "type": "string",
+      "description": "jql"
+     },
+     "maxResults": {
+      "type": "number",
+      "description": "maxResults"
+     }
+    },
+    "required": [
+     "cloudId",
+     "jql"
+    ]
+   }
+  },
+  {
+   "name": "createJiraIssue",
+   "description": "Create a new Jira issue in a project. Returns the Jira issue",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cloudId": {
+      "type": "string",
+      "description": "Atlassian cloud id"
+     },
+     "projectKey": {
+      "type": "string",
+      "description": "projectKey"
+     },
+     "issueTypeName": {
+      "type": "string",
+      "description": "issueTypeName"
+     },
+     "summary": {
+      "type": "string",
+      "description": "summary"
+     },
+     "description": {
+      "type": "string",
+      "description": "description"
+     }
+    },
+    "required": [
+     "cloudId",
+     "projectKey",
+     "issueTypeName",
+     "summary"
+    ]
+   }
+  },
+  {
+   "name": "editJiraIssue",
+   "description": "Update the fields of an existing Jira issue",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cloudId": {
+      "type": "string",
+      "description": "Atlassian cloud id"
+     },
+     "issueIdOrKey": {
+      "type": "string",
+      "description": "Jira issue id or key, e.g. PROJ-123"
+     },
+     "fields": {
+      "type": "string",
+      "description": "fields"
+     }
+    },
+    "required": [
+     "cloudId",
+     "issueIdOrKey",
+     "fields"
+    ]
+   }
+  },
+  {
+   "name": "transitionJiraIssue",
+   "description": "Transition a Jira issue to a new status",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cloudId": {
+      "type": "string",
+      "description": "Atlassian cloud id"
+     },
+     "issueIdOrKey": {
+      "type": "string",
+      "description": "Jira issue id or key, e.g. PROJ-123"
+     },
+     "transition": {
+      "type": "string",
+      "description": "transition"
+     }
+    },
+    "required": [
+     "cloudId",
+     "issueIdOrKey",
+     "transition"
+    ]
+   }
+  },
+  {
+   "name": "addCommentToJiraIssue",
+   "description": "Add a comment to a Jira issue",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cloudId": {
+      "type": "string",
+      "description": "Atlassian cloud id"
+     },
+     "issueIdOrKey": {
+      "type": "string",
+      "description": "Jira issue id or key, e.g. PROJ-123"
+     },
+     "commentBody": {
+      "type": "string",
+      "description": "commentBody"
+     }
+    },
+    "required": [
+     "cloudId",
+     "issueIdOrKey",
+     "commentBody"
+    ]
+   }
+  },
+  {
+   "name": "getConfluencePage",
+   "description": "Get a Confluence page by id. Returns the page content text",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cloudId": {
+      "type": "string",
+      "description": "Atlassian cloud id"
+     },
+     "pageId": {
+      "type": "string",
+      "description": "pageId"
+     }
+    },
+    "required": [
+     "cloudId",
+     "pageId"
+    ]
+   }
+  },
+  {
+   "name": "searchConfluenceUsingCql",
+   "description": "Search Confluence content using CQL. Returns Confluence pages",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cloudId": {
+      "type": "string",
+      "description": "Atlassian cloud id"
+     },
+     "cql": {
+      "type": "string",
+      "description": "cql"
+     },
+     "limit": {
+      "type": "number",
+      "description": "limit"
+     }
+    },
+    "required": [
+     "cloudId",
+     "cql"
+    ]
+   }
+  },
+  {
+   "name": "getAccessibleAtlassianResources",
+   "description": "Get the cloud id for the Atlassian sites you can access. Returns the cloud id",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  }
+ ]
+}

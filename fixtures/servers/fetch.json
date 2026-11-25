@@ -1,0 +1,39 @@
+{
+ "server": "fetch",
+ "transport": "stdio",
+ "command": "uvx",
+ "args": [
+  "mcp-server-fetch"
+ ],
+ "source": "hand-transcribed snapshot of the server's public tools/list (abbreviated); refresh with `toolgraph capture`",
+ "tools": [
+  {
+   "name": "fetch",
+   "description": "Fetches a URL from the internet and extracts its contents as markdown text",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "URL to fetch"
+     },
+     "max_length": {
+      "type": "number",
+      "description": "max_length"
+     },
+     "start_index": {
+      "type": "number",
+      "description": "start_index"
+     },
+     "raw": {
+      "type": "boolean",
+      "description": "raw"
+     }
+    },
+    "required": [
+     "url"
+    ]
+   }
+  }
+ ]
+}

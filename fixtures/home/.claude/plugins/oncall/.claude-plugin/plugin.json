@@ -1,0 +1,8 @@
+{
+  "name": "oncall",
+  "version": "0.3.0",
+  "description": "Incident triage: Sentry errors to GitHub issues and Slack updates",
+  "mcpServers": {
+    "sentry": {"command": "npx", "args": ["-y", "@sentry/mcp-server"]}
+  }
+}

@@ -1,0 +1,178 @@
+{
+ "server": "slack",
+ "transport": "stdio",
+ "command": "npx",
+ "args": [
+  "-y",
+  "@modelcontextprotocol/server-slack"
+ ],
+ "source": "hand-transcribed snapshot of the server's public tools/list (abbreviated); refresh with `toolgraph capture`",
+ "tools": [
+  {
+   "name": "slack_list_channels",
+   "description": "List public channels in the workspace. Returns channels",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "number",
+      "description": "limit"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "cursor"
+     }
+    },
+    "required": []
+   }
+  },
+  {
+   "name": "slack_post_message",
+   "description": "Post a new message to a Slack channel. Returns the message",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The ID of the Slack channel"
+     },
+     "text": {
+      "type": "string",
+      "description": "Message text"
+     }
+    },
+    "required": [
+     "channel_id",
+     "text"
+    ]
+   }
+  },
+  {
+   "name": "slack_reply_to_thread",
+   "description": "Reply to a specific message thread in Slack",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The ID of the Slack channel"
+     },
+     "thread_ts": {
+      "type": "string",
+      "description": "thread_ts"
+     },
+     "text": {
+      "type": "string",
+      "description": "Message text"
+     }
+    },
+    "required": [
+     "channel_id",
+     "thread_ts",
+     "text"
+    ]
+   }
+  },
+  {
+   "name": "slack_add_reaction",
+   "description": "Add a reaction emoji to a message",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The ID of the Slack channel"
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "timestamp"
+     },
+     "reaction": {
+      "type": "string",
+      "description": "reaction"
+     }
+    },
+    "required": [
+     "channel_id",
+     "timestamp",
+     "reaction"
+    ]
+   }
+  },
+  {
+   "name": "slack_get_channel_history",
+   "description": "Get recent messages from a channel. Returns messages",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The ID of the Slack channel"
+     },
+     "limit": {
+      "type": "number",
+      "description": "limit"
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   }
+  },
+  {
+   "name": "slack_get_thread_replies",
+   "description": "Get all replies in a message thread",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The ID of the Slack channel"
+     },
+     "thread_ts": {
+      "type": "string",
+      "description": "thread_ts"
+     }
+    },
+    "required": [
+     "channel_id",
+     "thread_ts"
+    ]
+   }
+  },
+  {
+   "name": "slack_get_users",
+   "description": "Get a list of all users in the workspace. Returns users",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "cursor"
+     },
+     "limit": {
+      "type": "number",
+      "description": "limit"
+     }
+    },
+    "required": []
+   }
+  },
+  {
+   "name": "slack_get_user_profile",
+   "description": "Get detailed profile information for a specific user",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "user_id"
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,104 @@
+{
+ "server": "sentry",
+ "transport": "stdio",
+ "command": "npx",
+ "args": [
+  "-y",
+  "@sentry/mcp-server"
+ ],
+ "source": "hand-transcribed snapshot of the server's public tools/list (abbreviated); refresh with `toolgraph capture`",
+ "tools": [
+  {
+   "name": "find_organizations",
+   "description": "Find organizations the user has access to. Returns organizations",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  },
+  {
+   "name": "find_projects",
+   "description": "Find projects in Sentry. Returns Sentry projects",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "organizationSlug": {
+      "type": "string",
+      "description": "organizationSlug"
+     }
+    },
+    "required": [
+     "organizationSlug"
+    ]
+   }
+  },
+  {
+   "name": "search_issues",
+   "description": "Search Sentry issues in a project. Returns Sentry issues",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "organizationSlug": {
+      "type": "string",
+      "description": "organizationSlug"
+     },
+     "projectSlug": {
+      "type": "string",
+      "description": "projectSlug"
+     },
+     "naturalLanguageQuery": {
+      "type": "string",
+      "description": "naturalLanguageQuery"
+     }
+    },
+    "required": [
+     "organizationSlug",
+     "naturalLanguageQuery"
+    ]
+   }
+  },
+  {
+   "name": "get_issue_details",
+   "description": "Get details about a Sentry issue including stacktrace and the file path of the error",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "organizationSlug": {
+      "type": "string",
+      "description": "organizationSlug"
+     },
+     "issueId": {
+      "type": "string",
+      "description": "issueId"
+     }
+    },
+    "required": [
+     "organizationSlug",
+     "issueId"
+    ]
+   }
+  },
+  {
+   "name": "search_events",
+   "description": "Search Sentry error events and logs",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "organizationSlug": {
+      "type": "string",
+      "description": "organizationSlug"
+     },
+     "naturalLanguageQuery": {
+      "type": "string",
+      "description": "naturalLanguageQuery"
+     }
+    },
+    "required": [
+     "organizationSlug",
+     "naturalLanguageQuery"
+    ]
+   }
+  }
+ ]
+}

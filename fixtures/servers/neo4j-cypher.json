@@ -1,0 +1,60 @@
+{
+ "server": "neo4j-cypher",
+ "transport": "stdio",
+ "command": "uvx",
+ "args": [
+  "mcp-neo4j-cypher"
+ ],
+ "source": "hand-transcribed snapshot of the server's public tools/list (abbreviated); refresh with `toolgraph capture`",
+ "tools": [
+  {
+   "name": "get_neo4j_schema",
+   "description": "List all node types, their attributes and their relationships in the Neo4j database. Returns the graph schema",
+   "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   }
+  },
+  {
+   "name": "read_neo4j_cypher",
+   "description": "Execute a read Cypher query on the Neo4j database. Returns rows",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Search query"
+     },
+     "params": {
+      "type": "string",
+      "description": "params"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   }
+  },
+  {
+   "name": "write_neo4j_cypher",
+   "description": "Execute a write Cypher query on the Neo4j database",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Search query"
+     },
+     "params": {
+      "type": "string",
+      "description": "params"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   }
+  }
+ ]
+}

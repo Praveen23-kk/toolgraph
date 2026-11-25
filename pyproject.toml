@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "toolgraph"
+version = "0.1.0"
+description = "The connected map of an AI agent's own toolbox (MCP servers, tools, skills, plugins, hooks) in a Relate graph"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = ["relate-db>=1.2.0"]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.2"]
+embed = ["fastembed>=0.4"]
+dev = ["pytest>=8", "mcp>=1.2"]
+
+[project.scripts]
+toolgraph = "toolgraph.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+toolgraph = ["cypher/*.cypher"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
