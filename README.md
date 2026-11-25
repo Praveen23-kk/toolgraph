@@ -83,7 +83,7 @@ flowchart LR
 Python 3.11+.
 
 ```bash
-git clone https://github.com/<you>/toolgraph && cd toolgraph
+git clone https://github.com/Praveen23-kk/toolgraph && cd toolgraph
 pip install -e ".[dev]"          # relate-db + mcp + pytest
 toolgraph demo                   # or: make demo
 ```
